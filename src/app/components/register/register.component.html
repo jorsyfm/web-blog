@@ -1,3 +1,64 @@
-<p>
-  register works!
-</p>
+<div class="columns m-t-xl">
+  <div class="column card is-half is-offset-one-quarter">
+
+    <div class="card-content">
+
+      <h1 class="title is-4 has-text-centered">Registro</h1>
+      <h2 class="subtitle is-6 has-text-centered">Regístrate para crear contenido en el blog</h2>
+      
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+  
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input [ngClass]="!name.valid && name.touched ? 'is-danger': ''" class="input" type="text" placeholder="Nombre" name="name" #name="ngModel" [(ngModel)]="user.name" required pattern="[a-zA-Z]+" >
+            <span class="icon is-small is-left">
+              <i class="fa fa-user"></i>
+            </span>
+          </p>
+
+          <p *ngIf="!name.valid && name.touched" class="help is-danger">Ingresa tu nombre correctamente</p>
+        
+        </div>
+  
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Apellidos" name="surname" #surmane="ngModel" [(ngModel)]="user.surname" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-user"></i>
+            </span>
+          </p>
+
+          <p *ngIf="!surname.valid && surname.touched" class="help is-danger">Ingresa tus apellidos correctamente</p>
+
+        </div>
+  
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="Email" name="email" ngModel>
+            <span class="icon is-small is-left">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+  
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="password" placeholder="Password" name="password" ngModel>
+            <span class="icon is-small is-left">
+              <i class="fa fa-lock"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="buttons has-addons is-centered">
+          <div class="control">
+            <input type="submit" class="button is-primary" value="Registrarme">
+          </div>
+        </div>
+  
+      </form>
+
+    </div>
+
+  </div>
+</div>
