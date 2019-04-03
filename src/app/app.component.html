@@ -3,8 +3,8 @@
 
     <div class="navbar-brand">
       <a class="navbar-item" [routerLink]="['/home']">
-        <!-- <img src="assets/images/konecta-logo.png" width="30" height="28"> -->
-        <img src="https://labtak.mx/assets/portada/images/elements/logo.png" width="80" height="28" alt="">
+        <img src="assets/images/konecta-logo.png" width="30" height="28">
+        <!-- <img src="https://labtak.mx/assets/portada/images/elements/logo.png" width="80" height="28" alt=""> -->
       </a>
 
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -40,12 +40,12 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a *ngIf="!identity" [routerLink]="['/registro']" class="button is-primary"><strong>Registro</strong></a>
-            <a *ngIf="!identity" [routerLink]="['/login']" class="button is-light">Login</a>
+            <a [routerLink]="['/registro']" class="button is-primary"><strong>Registro</strong></a>
+            <a [routerLink]="['/login']" class="button is-light">Login</a>
 
-            <div *ngIf="identity && identity.name" class="navbar-item has-dropdown is-hoverable m-b-sm">
+            <div class="navbar-item has-dropdown is-hoverable m-b-sm">
               <a class="navbar-link">
-                {{ identity.name + ' ' + identity.surname }}
+                Jorsy Fernández
               </a>
 
               <div class="navbar-dropdown">
@@ -62,7 +62,7 @@
                   Ajustes
                 </a>
                 <hr class="navbar-divider">
-                <a class="navbar-item" [routerLink]="['/logout/1']">
+                <a class="navbar-item">
                   Cerrar Sesión
                 </a>
               </div>
