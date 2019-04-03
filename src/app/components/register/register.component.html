@@ -1,13 +1,19 @@
 <div class="columns m-t-xl">
   <div class="column card is-half is-offset-one-quarter">
 
+    <button class="swal-aux" id="registerSuccess" [swal]="{ title: 'Te has registrado correctamente', text: 'Inicia Sesión para comenzar', type: 'success' }">
+    </button>
+
+    <button class="swal-aux" id="registerError" [swal]="{ title: 'Error al registrarte', text: 'Vuelve a intentar más tarde', type: 'error' }">
+    </button>
+
     <div class="card-content">
 
       <h1 class="title is-4 has-text-centered">Registro</h1>
       <h2 class="subtitle is-6 has-text-centered">Regístrate para crear contenido en el blog</h2>
-      
+
       <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-  
+
         <div class="field">
           <p class="control has-icons-left has-icons-right">
             <input [ngClass]="!name.valid && name.touched ? 'is-danger': ''" class="input" type="text" placeholder="Nombre" name="name" #name="ngModel" [(ngModel)]="user.name" required pattern="[a-zA-Z]+" >
@@ -17,12 +23,12 @@
           </p>
 
           <p *ngIf="!name.valid && name.touched" class="help is-danger">Ingresa tu nombre correctamente</p>
-        
+
         </div>
-  
+
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Apellidos" name="surname" #surmane="ngModel" [(ngModel)]="user.surname" required>
+            <input class="input" type="text" placeholder="Apellidos" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required>
             <span class="icon is-small is-left">
               <i class="fa fa-user"></i>
             </span>
@@ -31,31 +37,37 @@
           <p *ngIf="!surname.valid && surname.touched" class="help is-danger">Ingresa tus apellidos correctamente</p>
 
         </div>
-  
+
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="Email" name="email" ngModel>
+            <input class="input" type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
           </p>
+
+          <p *ngIf="!email.valid && email.touched" class="help is-danger">Ingresa tu correo correctamente</p>
+
         </div>
-  
+
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input class="input" type="password" placeholder="Password" name="password" ngModel>
+            <input class="input" type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
             <span class="icon is-small is-left">
               <i class="fa fa-lock"></i>
             </span>
           </p>
+
+          <p *ngIf="!password.valid && password.touched" class="help is-danger">Ingresa tu contraseña correctamente</p>
+
         </div>
 
         <div class="buttons has-addons is-centered">
           <div class="control">
-            <input type="submit" class="button is-primary" value="Registrarme">
+            <input type="submit" class="button is-primary" value="Registrarme" [disabled]="registerForm.invalid">
           </div>
         </div>
-  
+
       </form>
 
     </div>

@@ -4,11 +4,17 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+// HTTP Client
+import { HttpClientModule } from '@angular/common/http';
+
 // Import for Form
 import { FormsModule } from '@angular/forms';
 
 // Import Font Awesome
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+// Sweet Alert
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -27,7 +33,14 @@ import { ErrorComponent } from './components/error/error.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule,
+    SweetAlert2Module.forRoot({
+        buttonsStyling: false,
+        customClass: 'modal-content',
+        confirmButtonClass: 'button is-success',
+        cancelButtonClass: 'button is-warning'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
