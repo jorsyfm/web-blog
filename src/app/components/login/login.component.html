@@ -1,1 +1,52 @@
-{{ pageTitle }}
+<div class="columns m-t-xl">
+  <div class="column card is-half is-offset-one-quarter">
+
+    <button class="swal-aux" id="registerSuccess" [swal]="{ title: 'Te has registrado correctamente', text: 'Inicia Sesión para comenzar', type: 'success' }">
+    </button>
+
+    <button class="swal-aux" id="registerError" [swal]="{ title: 'Error al registrarte', text: 'Vuelve a intentar más tarde', type: 'error' }">
+    </button>
+
+    <div class="card-content">
+
+      <h1 class="title is-4 has-text-centered">Login</h1>
+      <h2 class="subtitle is-6 has-text-centered">Inicia sesión</h2>
+
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <span class="icon is-small is-left">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </p>
+
+          <p *ngIf="!email.valid && email.touched" class="help is-danger">Ingresa tu correo correctamente</p>
+
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-lock"></i>
+            </span>
+          </p>
+
+          <p *ngIf="!password.valid && password.touched" class="help is-danger">Ingresa tu contraseña correctamente</p>
+
+        </div>
+
+        <div class="buttons has-addons is-centered">
+          <div class="control">
+            <input type="submit" class="button is-primary" value="Registrarme" [disabled]="loginForm.invalid">
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
