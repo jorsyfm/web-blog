@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
       }
     }, error => {
       console.log(<any>error);
+      document.getElementById('registerError').click();
     });
   }
 
