@@ -7,7 +7,6 @@ import { LoginComponent } from './components/login/login.component';
 // Imports para rutas
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 // Definir rutas
 const routes: Routes = [
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
   { path: 'logout/:sure', component: LoginComponent },
-  { path: 'editar-perfil', component: ProfileEditComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', component: ErrorComponent }
 ];

@@ -20,7 +20,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
-import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ErrorComponent,
-    ProfileEditComponent
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
