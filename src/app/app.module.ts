@@ -16,6 +16,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // Sweet Alert
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
+// Import Angular Froala Editor Text.
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
@@ -42,7 +45,9 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
         customClass: 'modal-content',
         confirmButtonClass: 'button is-success',
         cancelButtonClass: 'button is-warning'
-    })
+    }),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
