@@ -12,6 +12,8 @@ import { config } from './config';
 export class UserService {
 
   public url = config.url;
+  public identity: any;
+  public token: string;
 
   constructor(public _http: HttpClient) { }
 
@@ -47,5 +49,32 @@ export class UserService {
 
     // Petición AJAX
     return this._http.post(this.url + 'login', params, {headers: headers});
+  }
+
+  // Retornar información del usuario logueado
+  getIdentity() {
+    let identity = JSON.parse(localStorage.getItem('user'));
+
+    if (identity && identity != 'undefined') {
+      this.identity = identity;
+    } else {
+      this.identity = null;
+    }
+
+    return this.identity;
+  }
+
+  // Retornar token del usuario logueado
+  getToken() {
+
+    let token = localStorage.getItem('token');
+
+    if (token && token != 'undefined') {
+      this.token = token;
+    } else {
+      this.token = null;
+    }
+
+    return this.token;
   }
 }
